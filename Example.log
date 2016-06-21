@@ -70,3 +70,73 @@ Ireland loses confrontation to Luxembourg
 
 Median position: 7.3491739896752115
 Mean position: 7.3491739896752115
+
+ROUND 6
+Belgium compromises with France
+	-0.17147772090669489 vs 0.3940292145932064
+	new_pos = 7.47204636191629
+Luxembourg loses confrontation to Belgium
+	0.04393570966631333 vs 0.12294346298815284
+	new_pos = 5.524237694197356
+Ireland loses confrontation to Belgium
+	0.477289288589615 vs 1.1583814184029237
+	new_pos = 5.524237694197356
+
+Median position: 7.414877545372958
+Mean position: 7.414877545372958
+
+ROUND 7
+Belgium compromises with France
+	-0.10459286362216708 vs 0.19548733882691532
+	new_pos = 8.824593855262423
+Luxembourg loses confrontation to Belgium
+	0.1382777829509383 vs 0.3410544636307657
+	new_pos = 7.47204636191629
+Ireland loses confrontation to Belgium
+	0.13272892587624174 vs 0.41138879294371355
+	new_pos = 7.47204636191629
+
+Median position: 7.510457183677219
+Mean position: 7.510457183677219
+
+ROUND 8
+Belgium compromises with France
+	-0.056369286263043605 vs 0.07826815650708174
+	new_pos = 9.671129769802048
+Luxembourg loses confrontation to Belgium
+	0.0872009778054279 vs 0.22517742605780633
+	new_pos = 8.824593855262423
+Ireland loses confrontation to Belgium
+	0.08321562348731826 vs 0.2751461345009193
+	new_pos = 8.824593855262423
+
+Median position: 7.5724470975503
+Mean position: 7.5724470975503
+
+ROUND 9
+Belgium compromises with Netherlands
+	-0.6974248364399851 vs 0.7157050033503447
+	new_pos = 4.144849062500606
+Luxembourg loses confrontation to Belgium
+	0.05008299023987961 vs 0.13597909894595128
+	new_pos = 9.671129769802048
+Ireland loses confrontation to Belgium
+	0.0474210361526437 vs 0.1671827021753982
+	new_pos = 9.671129769802048
+
+Median position: 7.324989065683666
+Mean position: 7.324989065683666
+
+ROUND 10
+Belgium compromises with France
+	-0.01852838755780717 vs 0.7395521611111853
+	new_pos = 4.291541224979646
+Luxembourg loses confrontation to Belgium
+	0.760038324818827 vs 1.4093388112170677
+	new_pos = 4.144849062500606
+Ireland loses confrontation to Belgium
+	0.796832348725107 vs 1.7236993574505728
+	new_pos = 4.144849062500606
+
+Median position: 7.242130958473938
+Mean position: 7.242130958473938
