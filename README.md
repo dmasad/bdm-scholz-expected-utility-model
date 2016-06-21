@@ -15,12 +15,17 @@ Changes by David Masad:
 usage: python bdm_scholz_model.py [-h] [--verbose] [--log LOG] csv_path num_rounds
 
 positional arguments:
+
   csv_path    path to csv with input data
+
   num_rounds  number of rounds of simulation to run
 
 optional arguments:
+
   -h, --help  show this help message and exit
+
   --verbose   Output the model dynamics to the terminal.
+
   --log LOG   Path to log the model run to.
 
 **Example:**
