@@ -223,7 +223,15 @@ class Offer(object):
 class BDMScholzModel(object):
     """An expected utility model for political forecasting."""
 
-    def __init__(self, data, q=1.0):
+    def __init__(self, data, q=1.0, verbose=True, log=None):
+
+        # Set up logging:
+        self.verbose = verbose
+        self.log_file = log
+        if self.log_file:
+            with open(self.log_file, "w") as f:
+                pass
+
         self.actors = [
             Actor(name=item['Actor'],
                   c=float(item['Capability']),
@@ -237,8 +245,9 @@ class BDMScholzModel(object):
         self.position_range = max(positions) - min(positions)
 
     @classmethod
-    def from_csv_path(cls, csv_path):
-        return cls(csv.DictReader(open(csv_path, 'rU')))
+    def from_csv_path(cls, csv_path, verbose=True, log=None):
+        return cls(csv.DictReader(open(csv_path, 'rU')), 
+                verbose=verbose, log=log)
 
     def actor_by_name(self, name):
         return self.name_to_actor.get(name)
@@ -304,34 +313,53 @@ class BDMScholzModel(object):
                                for actor in self.actors]
         for actor, best_offer in actor_to_best_offer:
             if best_offer:
-                print best_offer
+                self.log(str(best_offer))
                 actor.x = best_offer.position
 
     def run_model(self, num_rounds=1):
-        print 'Median position: %s' % self.median_position()
-        print 'Mean position: %s' % self.mean_position()
+        self.log('Median position: {}'.format(self.median_position()))
+        self.log('Mean position: {}'.format(self.mean_position()))
 
         for round_ in range(1, num_rounds + 1):
-            print ''
-            print 'ROUND %d' % round_
+            self.log('')
+            self.log('ROUND {}'.format(round_))
             self.update_risk_aversions()
             self.update_positions()
 
-            print ''
-            print 'Median position: %s' % self.median_position()
-            print 'Mean position: %s' % self.mean_position()
+            self.log('')
+            self.log('Median position: {}'.format(self.mean_position()))
+            self.log('Mean position: {}'.format(self.mean_position()))
+
+    def log(self, output):
+        '''
+        Helper function to log to a file or the terminal.
+        '''
+        if self.verbose:
+            print(output)
+        if self.log_file:
+            with open(self.log_file, "a") as f:
+                f.write(output)
+                f.write('\n')
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument(
         'csv_path',
-        help='path to csv with input data')
+        help='path to csv with input data.')
     parser.add_argument(
         'num_rounds',
-        help='number of rounds of simulation to run',
+        help='number of rounds of simulation to run.',
         type=int)
+    parser.add_argument(
+        '--verbose',
+        action='store_true',
+        help="Output the model log to the terminal."
+        )
+    parser.add_argument('--log',
+        help="File path to write log the model run to.")
     args = parser.parse_args()
 
-    model = BDMScholzModel.from_csv_path(args.csv_path)
+    model = BDMScholzModel.from_csv_path(args.csv_path, 
+        verbose=args.verbose, log=args.log)
     model.run_model(num_rounds=args.num_rounds)
